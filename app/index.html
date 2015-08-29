@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Angular Material - Starter App</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="assets/app.css"/>
+  </head>
+
+  <body ng-app="starterApp" layout="row" ng-controller="UserController as ul">
+
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-sm')">
+
+    <md-toolbar class="md-whiteframe-z1">
+      <h1>Heroes</h1>
+    </md-toolbar>
+
+    <md-list>
+      <md-list-item ng-repeat="it in ul.users">
+          <md-button ng-click="ul.selectUser(it)" ng-class="{'selectedUser' : it === ul.selectedUser }">
+            <img ng-src="assets/users/{{it.avatar}}" class="avatar">
+            {{it.name}}
+          </md-button>
+      </md-list-item>
+    </md-list>
+
+  </md-sidenav>
+
+
+
+
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>{{ul.selectedUser.name}}</h1>
+    </md-toolbar>
+
+    <md-content flex id="content">
+        <img ng-src="assets/users/{{ul.selectedUser.avatar}}" class="avatar">
+        <h2>{{ul.selectedUser.name}}</h2>
+        <p>{{ul.selectedUser.content}}</p>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Intelligence</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedUser.intelligence" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Strength</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedUser.strength" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Speed</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedUser.speed" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Durability</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedUser.durability" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Energy Projection</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedUser.energy" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Fighting Skills</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedUser.fighting" min="1" max="7" aria-label="rating"></md-slider>
+
+
+        <md-button class="contact" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
+          <md-tooltip>Contact {{ ul.selectedUser.name }}</md-tooltip>
+          <md-icon md-svg-icon="share"></md-icon>
+        </md-button>
+      </md-content>
+
+  </div>
+
+
+
+
+  <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+        <md-icon md-svg-icon="menu" ></md-icon>
+      </md-button>
+      <h1>{{ul.selectedVillain.name}}</h1>
+    </md-toolbar>
+
+    <md-content flex id="content">
+        <img ng-src="assets/villains/{{ul.selectedVillain.avatar}}" class="avatar">
+        <h2>{{ul.selectedVillain.name}}</h2>
+        <p>{{ul.selectedVillain.content}}</p>
+
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Intelligence</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedVillain.intelligence" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Strength</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedVillain.strength" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Speed</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedVillain.speed" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Durability</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedVillain.durability" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Energy Projection</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedVillain.energy" min="1" max="7" aria-label="rating"></md-slider>
+
+        <div flex="10" layout layout-align="center center">
+          <span class="md-body-1">Fighting Skills</span>
+        </div>
+        <md-slider flex md-discrete class="md-primary" ng-model="ul.selectedVillain.fighting" min="1" max="7" aria-label="rating"></md-slider>
+
+        <md-button class="contact" md-no-ink ng-click="ul.showContactOptions($event)" aria-label="Contact User">
+          <md-tooltip>Contact {{ ul.selectedVillain.name }}</md-tooltip>
+          <md-icon md-svg-icon="share"></md-icon>
+        </md-button>
+      </md-content>
+
+  </div>
+
+
+    <md-sidenav class="site-sidenav md-sidenav-right md-whiteframe-z2"
+                md-component-id="right"
+                md-is-locked-open="$mdMedia('gt-sm')">
+
+    <md-toolbar class="md-whiteframe-z1">
+      <h1>Villains</h1>
+    </md-toolbar>
+
+    <md-list>
+      <md-list-item ng-repeat="it in ul.villains">
+          <md-button ng-click="ul.selectVillain(it)" ng-class="{'selectedVillain' : it === ul.selectedVillain }">
+            <img ng-src="assets/villains/{{it.avatar}}" class="avatar">
+            {{it.name}}
+          </md-button>
+      </md-list-item>
+    </md-list>
+
+  </md-sidenav>
+
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script type="text/javascript" src="./bower_components/angular-material/angular-material.js"></script>
+
+    <script src="./src/users/Users.js"></script>
+    <script src="./src/users/UserController.js"></script>
+    <script src="./src/users/UserService.js"></script>
+
+
+    <script type="text/javascript">
+
+          angular
+              .module('starterApp', ['ngMaterial', 'users'])
+              .config(function($mdThemingProvider, $mdIconProvider){
+
+                  $mdIconProvider
+                      .defaultIconSet("./assets/svg/avatars.svg", 128)
+                      .icon("menu"       , "./assets/svg/menu.svg"        , 24)
+                      .icon("share"      , "./assets/svg/share.svg"       , 24)
+                      .icon("google_plus", "./assets/svg/google_plus.svg" , 512)
+                      .icon("hangouts"   , "./assets/svg/hangouts.svg"    , 512)
+                      .icon("twitter"    , "./assets/svg/twitter.svg"     , 512)
+                      .icon("phone"      , "./assets/svg/phone.svg"       , 512);
+
+                      $mdThemingProvider.theme('default')
+                          .primaryPalette('green')
+                          .accentPalette('grey');
+
+              });
+
+    </script>
+
+  </body>
+</html>
